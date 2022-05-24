@@ -1,0 +1,240 @@
+:root {
+    --white-color: #fff;
+    --primary-color: #ee4d2d;
+    --black-color: #000;
+    --text-color: #333;
+    --hover-background-color: rgba(189, 195, 199, 0.1);
+    --primary-gradient: linear-gradient(-180deg, #f53d2d, #f63);
+    --fw-500: font-weight: 500;
+    --mgr-10: 10px;
+    -fz-12: 12px;
+    --mgl-5: 5px;
+    --mgr-5: 5px;
+    --boder-color: #dbdbdb;
+    --growth-from: scale(0);
+    --growth-to: scale(1);
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid_full-width {
+    width: 100%;
+}
+
+.grid_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mgr-10 {
+    margin-right: var(--mgr-10);
+}
+
+.mgl-4 {
+    margin-left: 4px;
+}
+
+.mgl-5 {
+    margin-left: var(--mgl-5)
+}
+
+.mgr-5 {
+    margin-right: var(--mgr-5);
+}
+
+.active {
+    color: var(--primary-color)
+}
+
+.container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.gx {
+    margin: 0 -12px;
+    padding: 0 12px;
+}
+
+
+/* animation */
+
+@keyframes faceIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes ShowTop {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growth {
+    0% {
+        transform: var(--growth-from);
+        opacity: 0;
+    }
+    100% {
+        transform: var(--growth-to);
+        opacity: 1;
+    }
+}
+
+
+/* header modal */
+
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    --growth-from: scale(0.7);
+    --growth-to: scale(1);
+    animation: faceIn linear 0.1s;
+    will-change: opacity, transform, scale;
+}
+
+.hide {
+    display: none;
+}
+
+.modal__body {
+    position: absolute;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    overflow: hidden;
+    animation: growth ease-in 0.25s;
+}
+
+
+/* button style*/
+
+.btn {
+    min-width: 142px;
+    height: 34px;
+    border: transparent;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn--normal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--disabled {
+    color: O#949494;
+    cursor: default;
+    background-color: O#c3c3c3;
+}
+
+
+/* panigation */
+
+.catelory__panigation-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+.catelory__panigation-page-icon-left {
+    margin-right: 15px;
+    height: 100%;
+    padding: 0 13px;
+    text-align-last: left;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.catelory__panigation-page-icon-right {
+    height: 100%;
+    padding: 0 13px;
+    margin-left: 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icon-arrow-left {
+    fill: rgba(0, 0, 0, 0.4);
+    height: 1.4em;
+    width: 1.4em;
+}
+
+.icon-arrow-right {
+    fill: rgba(0, 0, 0, 0.4);
+    height: 1.4em;
+    width: 1.4em;
+}
+
+.catelory__panigation-page-btn-no-outline {
+    height: 100%;
+    text-align: center;
+    border: none;
+    font-size: 2rem;
+    min-width: 40px;
+    line-height: 20px;
+    border-radius: 2px;
+    background-color: transparent;
+    font-weight: 300;
+    margin: 0 15px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.4)
+}
+
+.catelory__panigation-page-btn-no-outline:hover {
+    color: var(--primary-color);
+}
+
+.catelory__panigation-page-btn-no-outline.active-btn {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.catelory__panigation-page-btn-no-outline:hover.active-btn:hover {
+    background-color: #f05d40;
+}
